@@ -1,0 +1,31 @@
+﻿<Window x:Class="Start.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Start"
+        mc:Ignorable="d"
+
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AS" Height="440" Width="400" Topmost="True" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="/free-icon-trolley-5028852.png"  >
+
+    <Grid Background="#2F4F4F" >
+        
+        <TextBlock Text="AppStore" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiCondensed" FontSize="36" Foreground="#DEB887" FontWeight="Bold"/>
+        <Border  Background="#778899" Margin="15,40,15,15" Padding="30"  CornerRadius="30" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="#673AB7" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Registering" Foreground="#D3D3D3" HorizontalAlignment="Center" FontSize="20" FontFamily="Bahnschrift SemiCondensed" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,5" SelectionBrush="LightGray" Background="#00000000" />
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,5" SelectionBrush="LightGray"/>
+                <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,0,0,5" SelectionBrush="LightGray"/>
+                <PasswordBox x:Name="passBox_2" materialDesign:HintAssist.Hint="Confirm the password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,0,0,5" SelectionBrush="LightGray"/>
+                <Button Content="Sign Up" Background="#99DAA520" BorderBrush="#99F5DEB3" Click="Button_Click"/>
+                <TextBlock Text="OR" HorizontalAlignment="Center" Margin="0,10,0,0" FontWeight="Bold" Foreground="#FFCACBCD"/>
+                <Button Content="Sign in"  Foreground="#DEB887" BorderBrush="#00F5DEB3" Click="Button_Click_1" Background="#00673AB7"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
