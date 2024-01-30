@@ -1,0 +1,29 @@
+﻿<Window x:Class="Start.HomeWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Start"
+        mc:Ignorable="d"
+        Title="HomeWin" Height="450" Width="800" Icon="/free-icon-trolley-5028852.png" WindowStyle="None" ResizeMode="NoResize">
+
+    <Grid MouseDown="Drag" Background="Gray">
+        <Grid Width="90" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30">
+            <Button x:Name="CloseBut" Style="{DynamicResource CloseBUT}" Content=" x"  Width="30" Height="30"  HorizontalAlignment="Right" Click="CloseBut_Click" />
+            <Button x:Name="ZiBut" Style="{DynamicResource ZipBUT}" Click="ZiBut_Click" Width="30" Height="30" HorizontalAlignment="Left" Content="-"/>
+            <Button x:Name="MaxButton" Style="{DynamicResource MaxBUT}" Click="MaxButton_Click" Width="30" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="1.161,0.824"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" >
+            <Button x:Name="ME" Content="Profile" HorizontalAlignment="Left" />
+            <Button x:Name="Shop" Content="Shop" HorizontalAlignment="Right" />
+        </Grid  >
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0" >
+            <TextBlock x:Name="UserName" HorizontalAlignment="Center" />
+            <Border Height="200" Width="300" MaxHeight="600" MaxWidth="800">
+                <Border.Background>
+                    <ImageBrush ImageSource="/ggg.jpeg"/>
+                </Border.Background>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

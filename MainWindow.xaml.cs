@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Start.db;
+using System.Runtime;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,38 +18,40 @@ namespace Start
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        UserContext db;
+
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            db = new UserContext();
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Color newColor = Color.FromArgb(124 , 10 ,2 ,50);
-            string email = textBoxEmail.Text;
-            string login = textBoxLogin.Text;
-            string pass = passBox.Password;
+           
+            string Email = textBoxEmail.Text;
+            string Login = textBoxLogin.Text;
+            string Pass = passBox.Password;
             string pass_2 = passBox_2.Password;
 
-            if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
+            if (Email.Length < 5 || !Email.Contains("@") || !Email.Contains("."))
             {
                 textBoxEmail.ToolTip = "Колличество символов должно быть больше 5";
                 textBoxEmail.Background = Brushes.DarkRed;
             }
             
-            else if (login.Length < 5)
+            else if (Login.Length < 5)
             {
                 textBoxLogin.ToolTip = "Колличество символов должно быть больше 5";
                 textBoxLogin.Background = Brushes.DarkRed;
             }
-            else if (pass.Length < 5)
+            else if (Pass.Length < 5)
             {
                 passBox.ToolTip = "Колличество символов должно быть больше 5";
                 passBox.Background = Brushes.DarkRed;
             }
-            else if (pass != pass_2)
+            else if (Pass != pass_2)
             {
                 passBox_2.ToolTip = "Колличество символов должно быть больше 5";
                 passBox_2.Background = Brushes.DarkRed;
@@ -64,7 +68,14 @@ namespace Start
                 passBox_2.Background = Brushes.Transparent;
 
                 MessageBox.Show("Зарегестрированы успешно!");
-                
+
+                User user = new User(Login,Pass,Email);
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                HomeWin Home = new HomeWin();
+                Home.Show();
+                this.Close();
             }
         }
 
@@ -72,7 +83,7 @@ namespace Start
         {
            SignIn signIn = new SignIn();
             signIn.Show();
-            Hide();
+            this.Close();
         }
 
         
